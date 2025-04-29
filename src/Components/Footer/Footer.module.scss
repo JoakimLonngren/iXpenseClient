@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Centrerar texten horisontellt */
+    color: #909090; /* Textfärg */
+    padding: 10px;
+    position: relative;
+    font-style: italic;
+    font-size: 15px;
+}
+
+.link {
+    color: #5a5ce4;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .link:hover {
+    text-decoration: underline;
+  }
