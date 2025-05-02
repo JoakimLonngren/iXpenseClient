@@ -4,7 +4,7 @@ import styles from './InformationMessage.module.scss'
 const InformationMessage = ({message, type, onClose}) => {
     if(!message) return null
 
-    const className = `${styles.InformationMessage} ${styles[type] || ''}`
+    const className = `${styles.informationMessage} ${styles[type] || ''}`
 
     return (
         <div className={className}>

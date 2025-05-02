@@ -7,6 +7,7 @@ import { loginUser } from '../../Api/ApiClient/Others/ApiUser'
 import { jwtDecode } from 'jwt-decode'
 import GlobalButton from '../Common/GlobalButton/GlobalButton';
 import Footer from '../Footer/Footer';
+import LoadingIcon from '../Common/UI/LoadingIcon/LoadingIcon';
 
 function Login() {
     const { login } = useUser()
@@ -49,7 +50,7 @@ function Login() {
             }
         } catch (error) {
             console.error("Login failed.", error)
-            showMessage("An error occued during login.", "error")
+            showMessage("An error occured during login.", "error")
         } finally {
             setIsLoading(false)
         }
@@ -87,15 +88,15 @@ function Login() {
                             className={styles.loginInput}
                             autoComplete="current-password"    
                         />
-                            <GlobalButton
-                                className={styles.confirm}
-                                onClick={handleLogin}
-                                text="Sign in"
-                                disabled={isLoading}
-                            >
-                                Sign in
-                            </GlobalButton>
-                            <Footer inLogin={true}/>
+                        <GlobalButton
+                            variant='confirm'
+                            onClick={handleLogin}
+                            disabled={isLoading}
+                        >
+                            Sign in
+                        </GlobalButton>
+                        <Footer inLogin={true}/>
+                        {isLoading && <LoadingIcon/>}
                     </form>
                 </div>
             </div>

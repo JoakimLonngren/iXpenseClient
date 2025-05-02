@@ -1,0 +1,18 @@
+.container{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    min-height: 80vh;
+    gap: 0.5rem;
+}
+
+.leftContent{
+    background-color: grey;
+    border-radius: 10px;
+    //border-radius: 0.5rem;
+}
+
+.remainingContent{
+    background-color: yellow;
+    border-radius: 10px;
+    //border-radius: 0.5rem;
+}
