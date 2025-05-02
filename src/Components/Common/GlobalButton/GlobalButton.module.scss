@@ -17,9 +17,16 @@
 }
 
 .confirm{
-    background-color: rgb(115, 139, 202);
+    background: rgb(115, 139, 202);
 }
 
 .cancel{
-    background-color: black;
+    background: black;
+}
+
+.logout{
+    @extend .button;
+    background: rgb(44, 30, 105);
+    height:2rem;
+    width: 7rem;
 }

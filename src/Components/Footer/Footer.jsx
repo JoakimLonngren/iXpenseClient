@@ -7,7 +7,7 @@ const Footer = ({ inLogin = false}) => {
 
     const handleLinkClick = () => {
         if(inLogin){
-            //navigate('/register)
+            navigate('/register')
         } else {
             navigate('/')
         }

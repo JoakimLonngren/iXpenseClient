@@ -1,0 +1,38 @@
+.informationMessage {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;;
+    position: fixed;
+    top: 10%;
+    right: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 20px 30px;
+    border-radius: 25px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 9999; /* Se till att notifieringen är ovanpå allt annat */
+    text-align: center;
+    width: 25rem;
+    height: 0.5rem;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.closeButton {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
