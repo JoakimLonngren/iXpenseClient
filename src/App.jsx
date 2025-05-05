@@ -5,6 +5,8 @@ import { InformationMessageProvider } from "./Contexts/InformationMessageContext
 import Login from "./Components/Login/Login"
 import Register from "./Components/Register/Register"
 import ProfilePage from "./Components/ProfilePage/ProfilePage"
+import ReceiptForm from "./Components/CreateReceipt/ReceiptForm/ReceiptForm.jsx"
+import { FormProvider } from "./Contexts/FormContext.jsx"
 
 function App() {
   return (
@@ -16,6 +18,13 @@ function App() {
             <Route path="/register" element={<Register/>}/>
             <Route element={<Layout />}>
               <Route path='/profilePage' element={<ProfilePage/>}/>
+
+              <Route path='/createReceipt' element={
+                <FormProvider>
+                  <ReceiptForm/>
+                </FormProvider>
+              }/>
+              
             </Route>
           </Routes>
         </Router>
