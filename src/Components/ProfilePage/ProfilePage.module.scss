@@ -1,4 +1,5 @@
 .container{
+    width:100%;
     display: grid;
     grid-template-columns: 1fr 2fr;
     min-height: 80vh;
@@ -15,4 +16,9 @@
     background-color: yellow;
     border-radius: 10px;
     //border-radius: 0.5rem;
+}
+
+.bigbutton{
+    width:10rem;
+    height:3rem;
 }

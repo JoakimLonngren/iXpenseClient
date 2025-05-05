@@ -33,10 +33,14 @@
     display: flex;
 }
 .main{
+    display: flex;
+    align-items: center;
     justify-content: center;
     box-sizing: border-box;
     background-color: rgba(247, 245, 245, 0.895);
     border-radius: 0.5rem;
-    min-height: 80vh;
+    min-height:90vh;
     padding:0.5rem;
+    background: linear-gradient(90deg, #ededed, #5a5ce4, #ef7cfa);
+    
 }

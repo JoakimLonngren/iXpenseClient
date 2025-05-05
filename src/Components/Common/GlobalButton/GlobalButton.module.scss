@@ -8,25 +8,35 @@
     border-radius:2rem;
     cursor:pointer;
     font-weight:bold;
-    box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.5);
     background: linear-gradient(90deg, #a9c1d2, #5a5ce4, #290981);
-}
 
-.button:hover{
-    opacity: 0.9;
+    &:disabled{
+        opacity: 0.5;
+        cursor:not-allowed;
+    }
+    &:not(:disabled):hover {
+        opacity: 0.5;
+    }
 }
 
 .confirm{
-    background: rgb(115, 139, 202);
+    background: #339E66FF
 }
 
 .cancel{
-    background: black;
+    background: #078282FF
 }
 
 .logout{
-    @extend .button;
     background: rgb(44, 30, 105);
     height:2rem;
     width: 7rem;
+}
+
+.add{
+    //background: #95DBE5FF;
+    width:50%;
+    height:2.5rem;
+    background: rgb(120, 200, 212);
 }
