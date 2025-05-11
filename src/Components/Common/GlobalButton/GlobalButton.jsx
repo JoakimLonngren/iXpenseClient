@@ -5,7 +5,8 @@ function GlobalButton({
     onClick, 
     type = "button",
     disabled = false,
-    variant = ""
+    variant = "",
+    ...props
     }) {
         const variantClass = styles[variant] || '';
 
@@ -15,6 +16,7 @@ function GlobalButton({
             onClick={onClick}
             disabled={disabled}
             className={`${styles.button} ${variantClass}`}
+            {...props}
         >
             {children}
         </button>

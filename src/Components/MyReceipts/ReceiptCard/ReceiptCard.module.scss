@@ -1,0 +1,26 @@
+.container{
+
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:inherit;
+    border: 2px solid rgba(0, 0, 0, 0.199);
+    border-radius: 0.5rem;
+    gap: 0.5rem;
+    font-size:xx-large;
+    background-color: white;
+    transition: 0.2s ease-in-out;
+
+    p {
+        margin:5px;
+    }
+}
+
+.card:hover{
+    transform: scale(1.1);
+    background-color: rgb(241, 245, 247);
+}

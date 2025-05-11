@@ -5,12 +5,12 @@ import { useNavigate } from 'react-router-dom'
 function ProfilePage() {
     const navigate = useNavigate()
 
-
-
     return(
         <div className={styles.container}>
             <div className={styles.leftContent}>
-                <button className={styles.bigbutton} onClick={() => navigate('/createReceipt')}></button>
+                <button className={styles.bigbutton} onClick={() => navigate('/createReceipt')}>Register receipt</button>
+                <button className={styles.bigbutton} onClick={() => navigate('/receiptList')}>Your receipts</button>
+                <button className={styles.bigbutton} onClick={() => navigate('/summaryPage')}>Period summary</button>
                 s
             </div>
             <div className={styles.remainingContent}>

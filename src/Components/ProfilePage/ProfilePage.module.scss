@@ -1,21 +1,24 @@
 .container{
     width:100%;
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 5fr;
     min-height: 80vh;
     gap: 0.5rem;
 }
 
 .leftContent{
-    background-color: grey;
+    padding: 1rem;
+    gap:1rem;
+    display:flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.890);
     border-radius: 10px;
     //border-radius: 0.5rem;
 }
 
 .remainingContent{
-    background-color: yellow;
+    background-color: rgba(255, 255, 255, 0.890);
     border-radius: 10px;
-    //border-radius: 0.5rem;
 }
 
 .bigbutton{
