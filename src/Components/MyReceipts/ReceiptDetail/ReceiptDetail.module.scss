@@ -1,0 +1,50 @@
+.container{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    min-height:60vh;
+    max-height:90vh;
+    width:30%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.7);
+    border-radius: 0.5rem;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
+    padding:1rem;
+}
+
+.receiptDetailContainer{
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    flex-grow:1;
+    align-items: center;   
+}
+
+.products{
+    width:100%;
+    padding:0;
+    display:flex;
+    
+    flex-direction: column;
+    align-items: center;
+    list-style:none;
+}
+
+.itemRow{
+    width:80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+.buttonWrapper{
+    width:100%;
+    margin-top:auto;
+    display: flex;
+    justify-content: center;
+    gap:1rem;
+}

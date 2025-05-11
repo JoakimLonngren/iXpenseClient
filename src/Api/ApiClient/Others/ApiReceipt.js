@@ -29,8 +29,38 @@ export const getReceipts = async () => {
     }
 }
 
-export const deleteReceipt = async () => {
+export const GetMostPurchasedItem = async (startDate, endDate) => {
     try {
+        console.log("➡️ Skickar datum till API:", { startDate, endDate });
+        const response = await apiClient.get('/Receipt/GetMostPurchasedItem', {
+            params: {
+                startDate,
+                endDate
+            }
+        })
+        return response.data
+    } catch (error) {
+        return error.response.data ?? { success: false, message: 'Unknown error'}
+    }
+}
+
+export const GetMostPurchasedCategory = async (startDate, endDate) => {
+    try {
+        console.log("➡️ Skickar datum till API:", { startDate, endDate });
+        const response = await apiClient.get('Receipt/GetMostPurchasedCategory', {
+            params: {
+                startDate,
+                endDate
+            }
+        })
+        return response.data
+    } catch (error) {
+        return error.response.data ?? { success: false, message: 'Unknown error'}
+    }
+}
+
+export const deleteReceipt = async (receiptId) => {
+    try {    
         const response = await apiClient.delete(`/Receipt/${receiptId}`)
         return response.data
     } catch (error) {

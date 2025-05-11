@@ -7,6 +7,8 @@ import Register from "./Components/Register/Register"
 import ProfilePage from "./Components/ProfilePage/ProfilePage"
 import ReceiptForm from "./Components/CreateReceipt/ReceiptForm/ReceiptForm.jsx"
 import { FormProvider } from "./Contexts/FormContext.jsx"
+import ReceiptList from "./Components/MyReceipts/ReceiptList/ReceiptList.jsx"
+import SummaryPage from "./Components/Summary/SummaryPage/SummaryPage.jsx"
 
 function App() {
   return (
@@ -24,6 +26,10 @@ function App() {
                   <ReceiptForm/>
                 </FormProvider>
               }/>
+
+              <Route path='/receiptList' element={<ReceiptList/>}/>
+              <Route path='/summaryPage' element={<SummaryPage/>} />
+
               
             </Route>
           </Routes>
