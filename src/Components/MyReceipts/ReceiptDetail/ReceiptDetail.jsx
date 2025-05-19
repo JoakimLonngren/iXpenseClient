@@ -25,7 +25,7 @@ const ReceiptDetail = ({ receipt, onClose, onDeleteSuccess }) => {
         <div className={styles.container}>
             <div className={styles.receiptDetailContainer}>
                 <h4>{receipt.from}</h4>
-                <h4>{receipt.date}</h4>
+                <h4>{new Date(receipt.date).toLocaleDateString('sv-SE')}</h4>
                 <ul className={styles.products}>
                     {receipt.items.map((item, i) => (
                         <li key={i} className={styles.itemRow}>
