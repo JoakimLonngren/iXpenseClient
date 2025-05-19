@@ -1,10 +1,11 @@
 import styles from './SummaryPage.module.scss'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { GetMostPurchasedItem, GetMostPurchasedCategory } from '../../../Api/ApiClient/Others/ApiReceipt'
 import CategoryDiagram from '../CategoryDiagram/CategoryDiagram'
 import DatePicker from '../DatePicker/DatePicker'
 import { useInformationMessage } from '../../../Contexts/InformationMessageContext'
 import LoadingIcon from '../../Common/UI/LoadingIcon/LoadingIcon'
+import GlobalButton from '../../Common/GlobalButton/GlobalButton'
 
 const SummaryPage = () => {
     const [topItem, setTopItem] = useState(null)
@@ -14,43 +15,41 @@ const SummaryPage = () => {
     const [isLoading, setIsLoading] = useState(false)
     const { showMessage } = useInformationMessage();
 
-    useEffect(() => {
 
+    const retrieveSummary = async () => {
+        
         if(!startDate || !endDate){
+            showMessage('Please select a start and a end date.')
             return;
         }
 
-        const retrieveSummary = async () => {
-            try {
-                setIsLoading(true)
+        try {
+            setIsLoading(true)
 
-                const [itemData, categoryData] = await Promise.all([
-                    GetMostPurchasedItem(startDate, endDate),
-                    GetMostPurchasedCategory(startDate, endDate),
-                ])
+            const [itemData, categoryData] = await Promise.all([
+                GetMostPurchasedItem(startDate, endDate),
+                GetMostPurchasedCategory(startDate, endDate),
+            ])
 
-                if(itemData.success && itemData.data) {
-                    setTopItem(itemData.data)
-                } else {
-                    setTopItem(null)
-                    showMessage(itemData.message || 'No items found.')
-                }
-
-                if(categoryData.success && Array.isArray(categoryData.data)){
-                    setCategories(categoryData.data)
-                } else {
-                    setCategories([])
-                    showMessage(categoryData.message || 'No categories found.')
-                }
-            } catch (error) {
-                showMessage(error.message || 'An error occured during registration.', 'error')
-            } finally {
-                setIsLoading(false)
+            if(itemData.success && itemData.data) {
+                setTopItem(itemData.data)
+            } else {
+                setTopItem(null)
+                showMessage(itemData.message || 'No items found.')
             }
-        }
 
-        retrieveSummary()
-    }, [startDate, endDate])
+            if(categoryData.success && Array.isArray(categoryData.data)){
+                setCategories(categoryData.data)
+            } else {
+                setCategories([])
+                showMessage(categoryData.message || 'No categories found.')
+            }
+        } catch (error) {
+            showMessage(error.message || 'An error occured during the fetching of .', 'error')
+        } finally {
+            setIsLoading(false)
+        }
+    }
 
     return (
         <div className={styles.container}>
@@ -62,12 +61,9 @@ const SummaryPage = () => {
                 onChangeStart={setStartDate}
                 onChangeEnd={setEndDate}
             />
+            <GlobalButton onClick={retrieveSummary} variant='add'>Get summary</GlobalButton>
 
-            {!startDate || !endDate ? (
-                showMessage('Please select a start and a end date.')
-            ) : isLoading ? (
-                <p>Loading...</p>
-            ) : (
+            {!isLoading && (
                 <>
                     {topItem && (
                         <p className={styles.topItem}>

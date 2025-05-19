@@ -10,6 +10,7 @@
     font-weight:bold;
     box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.5);
     background: linear-gradient(90deg, #a9c1d2, #5a5ce4, #290981);
+    user-select: none;
 
     &:disabled{
         opacity: 0.5;

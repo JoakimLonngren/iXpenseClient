@@ -1,11 +1,4 @@
 .container{
-    /*display:flex;
-    flex-direction: column;
-    padding:2rem;
-    width: 50rem;
-    justify-self: center;
-    align-items: center;
-    gap:1rem;*/
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,4 +9,8 @@
     padding: 3rem;
     width:40rem;
     gap:1rem;
+
+    button{
+        width: 20rem;
+    }
 }

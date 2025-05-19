@@ -4,21 +4,27 @@ import { getReceipts } from '../../../Api/ApiClient/Others/ApiReceipt'
 import ReceiptCard from '../ReceiptCard/ReceiptCard'
 import ReceiptDetail from '../ReceiptDetail/ReceiptDetail'
 import GlobalButton from '../../Common/GlobalButton/GlobalButton'
+import LoadingIcon from '../../Common/UI/LoadingIcon/LoadingIcon'
 import { useNavigate } from 'react-router-dom'
 
 const ReceiptList = () => {
     const [receipts, setReceipts] = useState([])
     const [selectedReceipt, setSelectedReceipt] = useState(null)
+    const [isLoading, setIsLoading] = useState(false)
     const navigate = useNavigate()
 
     const retrieveReceipts = async () => {
         try {
+            setIsLoading(true)
             const response = await getReceipts()
             console.log('Api reponse:', response)
             setReceipts(Array.isArray(response.data) ? response.data : [])
         } catch (error) {
             console.error('Failed to load receipts', error)
+        } finally {
+            setIsLoading(false)
         }
+        
     }
 
     useEffect(() => {
@@ -31,9 +37,10 @@ const ReceiptList = () => {
 
     return(
         <div className={styles.container}>
+            {isLoading && <LoadingIcon/>}
             <h2> Your receipts </h2>
             {receipts.map((r) => (
-                <ReceiptCard key={r.id} receipt={r} onSelect={() => setSelectedReceipt(r)} />
+                <ReceiptCard key={r.id} receipt={r} onSelect={() => {if(!selectedReceipt){setSelectedReceipt(r)}}} />
             ))}
 
             {selectedReceipt && (

@@ -51,7 +51,7 @@ function Register () {
         try {
             const data = await registerUser(formInput.username, formInput.email, formInput.password)
             showMessage(data.message)
-            navigate('/login')
+            navigate('/')
         } catch (error) {
             console.error('Registration failed.', error)
             showMessage(error.message || 'An error occured during registration.', 'error')
